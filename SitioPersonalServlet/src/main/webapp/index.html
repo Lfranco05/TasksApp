@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Sitio Web Personal de Luis Angel Franco</title>
+    <!-- Fuente para el título -->
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+    <!-- Nueva fuente principal -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: url('Img/fondoprincipal.jpg') no-repeat center center fixed;
+            background-size: cover;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 40px 20px;
+            position: relative;
+        }
+
+        /* Capa oscura encima del fondo */
+        body::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(4px);
+            z-index: 0;
+        }
+
+        h1 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 48px;
+            color: #00e6e6;
+            text-shadow: 0 0 10px #00ffff;
+            margin-bottom: 20px;
+            z-index: 1;
+        }
+
+        p {
+            font-size: 18px;
+            color: #d0f0f0;
+            text-align: center;
+            max-width: 700px;
+            margin-bottom: 40px;
+            z-index: 1;
+        }
+
+        .cards-container {
+            display: flex;
+            gap: 30px;
+            flex-wrap: wrap;
+            justify-content: center;
+            z-index: 1;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 15px;
+            padding: 30px 40px;
+            width: 280px;
+            text-align: center;
+            box-shadow: 0 0 15px rgba(0, 255, 255, 0.15);
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 25px rgba(0, 255, 255, 0.4);
+        }
+
+        .card h2 {
+            color: #00ffff;
+            margin-bottom: 10px;
+            font-family: 'Orbitron', sans-serif;
+        }
+
+        .card p {
+            color: #e0f7fa;
+            font-size: 15px;
+            margin-bottom: 15px;
+        }
+
+        .card a {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 10px 20px;
+            color: #00e6e6;
+            border: 1px solid #00e6e6;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: background-color 0.3s, color 0.3s, box-shadow 0.3s;
+        }
+
+        .card a:hover {
+            background-color: #00e6e6;
+            color: #000;
+            box-shadow: 0 0 15px #00ffff;
+        }
+
+        hr {
+            margin-top: 60px;
+            border: none;
+            border-top: 2px solid #00e6e6;
+            width: 80%;
+            z-index: 1;
+        }
+    </style>
+</head>
+<body>
+<h1>¡Bienvenidos Soy Luis Angel Franco!</h1>
+<p>Explora este sitio para conocer un poco más sobre mí, mi historia y las cosas que me apasionan en la vida.</p>
+
+<div class="cards-container">
+    <div class="card">
+        <h2>Mi Biografía</h2>
+        <p>Conoce más sobre quién soy, mis pasatiempos y logros académicos.</p>
+        <a href="biografia">Ver biografía</a>
+    </div>
+    <div class="card">
+        <h2>Temas de Interés</h2>
+        <p>Descubre mis experiencias familiares, culturales y pasiones personales.</p>
+        <a href="temas">Ver temas</a>
+    </div>
+</div>
+
+<hr>
+</body>
+</html>

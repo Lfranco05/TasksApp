@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+<h:head>
+    <title>TodoList</title>
+</h:head>
+<h:body>
+    <h:form id="taskForm">
+        <p:growl id="growl" showDetail="true" life="3000" />
+
+        <p:panel header="Agregar Tarea">
+            <p:inputText id="newTaskInput" value="#{taskController.newTaskDescription}" label="Nueva tarea" style="width:300px;"/>
+            <p:commandButton value="Agregar"
+                             action="#{taskController.addTaskAction()}"
+                             update="tasksTable growl"
+                             process="newTaskInput"
+                             icon="pi pi-plus"
+                             styleClass="p-button-success"/>
+        </p:panel>
+
+        <br/>
+
+        <p:dataTable id="tasksTable" var="task" value="#{taskController.tasks}" rowKey="#{task.description}" style="width:100%;">
+            <p:column headerText="Tarea">
+                <h:outputText value="#{task.description}"
+                              style="#{task.completed ? 'text-decoration: line-through; color:gray;' : ''}"/>
+            </p:column>
+
+            <p:column headerText="Completada" style="text-align:center;">
+                <p:commandButton value="#{task.completed ? 'Desmarcar' : 'Completar'}"
+                                 actionListener="#{taskController.toggleCompleted(task)}"
+                                 update="tasksTable growl"
+                                 process="@this"
+                                 icon="#{task.completed ? 'pi pi-refresh' : 'pi pi-check'}"
+                                 styleClass="p-button-info"/>
+            </p:column>
+
+            <p:column headerText="Eliminar" style="text-align:center;">
+                <p:commandButton value="Eliminar"
+                                 actionListener="#{taskController.removeTask(task)}"
+                                 update="tasksTable growl"
+                                 process="@this"
+                                 icon="pi pi-trash"
+                                 styleClass="p-button-danger"/>
+            </p:column>
+        </p:dataTable>
+    </h:form>
+</h:body>
+</html>
